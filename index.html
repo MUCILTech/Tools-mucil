@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Tools Mucil, MUCILTech, Web Tools, Glassmorphism, Neon Dark, Peach Theme, Smartlink Support">
+    <meta name="description" content="Koleksi tools canggih dari MUCILTech dengan desain modern dan fitur ganti tema otomatis.">
+    <meta name="author" content="MUCILTech">
+    
+    <title>Tools Mucil - Homepage</title>
 
+    <style>
+        /* CSS VARIABLES & THEMES */
+        :root {
+            /* Default: Dark Neon Blue */
+            --bg-color: #050a18;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #e0e0e0;
+            --accent-color: #00d2ff;
+            --glow-color: rgba(0, 210, 255, 0.5);
+            --card-shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-peach {
+            --bg-color: #fff5f0;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 150, 150, 0.2);
+            --text-color: #5d4037;
+            --accent-color: #ff8a65;
+            --glow-color: rgba(255, 138, 101, 0.4);
+            --card-shadow: rgba(255, 138, 101, 0.1);
+        }
+
+        .theme-original {
+            --bg-color: #121212;
+            --glass-bg: rgba(40, 40, 40, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --text-color: #ffffff;
+            --accent-color: #bb86fc;
+            --glow-color: rgba(187, 134, 252, 0.4);
+            --card-shadow: rgba(0, 0, 0, 0.7);
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* GLASSMORPHISM & UTILITIES */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 var(--card-shadow);
+        }
+
+        /* HEADER */
+        header {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 25px;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            filter: drop-shadow(0 0 8px var(--accent-color));
+        }
+
+        .header-content h1 {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .theme-switcher {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-theme {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.5);
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .btn-theme:hover { transform: scale(1.2); }
+        .blue { background: #00d2ff; }
+        .peach { background: #ff8a65; }
+        .original { background: #121212; }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* CARD STYLING */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        .card {
+            padding: 40px 30px;
+            width: 350px;
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 45px var(--glow-color);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .btn-enter {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px var(--glow-color);
+            transition: all 0.3s;
+        }
+
+        .btn-enter:hover {
+            letter-spacing: 2px;
+            filter: brightness(1.1);
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            padding: 25px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0 !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            header { flex-direction: column; gap: 15px; }
+            .card { width: 100%; }
+        }
+    </style>
+</head>
+<body class="theme-dark-blue">
+
+    <header class="glass-effect">
+        <div class="header-content">
+            <img src="https://i.postimg.cc/XYcWXgZP/P-2D9CED1.png" alt="Icon Mucil" class="logo">
+            <h1>Tools Mucil</h1>
+        </div>
+        <div class="theme-switcher">
+            <button onclick="setTheme('theme-dark-blue')" class="btn-theme blue" title="Dark & Blue Neon"></button>
+            <button onclick="setTheme('theme-peach')" class="btn-theme peach" title="Light & Peach"></button>
+            <button onclick="setTheme('theme-original')" class="btn-theme original" title="Original Dark"></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
+
+        <div class="card-container">
+            <div class="card glass-effect">
+                <h3>Main Dash</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                <a href="https://www.effectivegatecpm.com/qpg4ayb79?key=4c88ca3baa1508091a457fc9c1f344dd" class="btn-enter" target="_blank">MASUK</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="glass-effect">
+        <p>&copy; 2026 Made with love by <strong>MUCILTech</strong></p>
+    </footer>
+
+    <script>
+        /**
+         * Mengubah tema secara dinamis
+         * @param {string} themeName - Class name tema
+         */
+        function setTheme(themeName) {
+            // Animasi transisi fade out
+            document.body.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                // Hapus semua class tema yang ada
+                document.body.classList.remove('theme-dark-blue', 'theme-peach', 'theme-original');
+                
+                // Tambahkan tema baru
+                document.body.classList.add(themeName);
+                
+                // Kembalikan opacity
+                document.body.style.opacity = '1';
+                
+                // Simpan pilihan user ke localStorage (Opsional agar tidak reset saat refresh)
+                localStorage.setItem('preferred-theme', themeName);
+            }, 150);
+        }
+
+        // Cek tema terakhir saat halaman dimuat
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('preferred-theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+        };
+    </script>
+</body>
+</html>
